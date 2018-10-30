@@ -1,9 +1,13 @@
 import requests
 import json
-from credentials import credential
+from credentials import *
 
 
-def getAccessToken(host_identity, tid_base64):
+def main():
+    bearer_token = getAccessToken()
+    print(bearer_token)
+
+def getAccessToken():
     url = host_identity + "/token"
     headers =  {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -13,7 +17,6 @@ def getAccessToken(host_identity, tid_base64):
         'scope': 'openid',
         'grant_type': 'client_credentials'
     }
-
     res = requests.post(url, data=data, headers=headers)
 
     # Content is a bytes object. Using json library, convert to dict (JSON)
@@ -21,8 +24,5 @@ def getAccessToken(host_identity, tid_base64):
     return content['access_token']
 
 
-host_identity = "https://identity.trimble.com"
-host = "https://api-usw2.trimblepaas.com/data_ocean-v1.0"
-owner = "ML-Capstone-2018-2019"
-tid_base64 = credential
-bearer_token = getAccessToken(host_identity, tid_base64)
+if __name__== "__main__":
+    main()
