@@ -4,15 +4,15 @@ __pycache__
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+/webapp/node_modules
+/webapp/.pnp
 .pnp.js
 
 # testing
-/coverage
+/webapp/coverage
 
 # production
-/build
+/webapp/build
 
 # misc
 .DS_Store
