@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
-import {Route} from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import {Link, NavLink, Route} from 'react-router-dom';
 
 export default class AppNav extends Component {
   render() {
@@ -11,8 +10,8 @@ export default class AppNav extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <Nav.Link href="#home">Map</Nav.Link>
-                <Nav.Link href="#link">Add new images</Nav.Link>
+                <Nav.Link to="#home">Map</Nav.Link>
+                <Nav.Link to="#link">Add new images</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
