@@ -1,15 +1,8 @@
-import React, { Component } from 'react'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
-import Street from './Street'
+import React, { Component } from 'react';
+import MapView from './MapView';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-
-type State = {
-  lat: number,
-  lng: number,
-  zoom: number,
-  img: string
-}
+import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
 
 export default class App extends Component {
   state = {
@@ -22,28 +15,25 @@ export default class App extends Component {
   //<button onClick=""></button>
 
   render() {
-    const position = [this.state.lat, this.state.lng]
     return (
       <div>
-        <Route exact path="/" render={()=>
-          <Map id='map' center={position} zoom={this.state.zoom}>
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={position}>
-              <Popup>
-                <Link to="/street">Gotta go FHAST</Link>
-                <p class="centered">
-                  <img width="64" height="64" src={this.state.img} alt=""/>
-                </p>
-              </Popup>
-            </Marker>
-          </Map>
-        }/>
-        <Route path="/street" render={()=>
-          <Street image={this.state.img}/>
-        } />
+        <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">Municipal Object Tracker</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#link">Link</Nav.Link>
+                </Nav>
+                <Form inline>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <Button variant="outline-success">Search</Button>
+                </Form>
+            </Navbar.Collapse>
+        </Navbar>
+        <div id='main_container'>
+            <MapView/>
+        </div>
       </div>
     )
   }
