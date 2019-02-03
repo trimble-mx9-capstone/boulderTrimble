@@ -1,0 +1,20 @@
+.zoomButtons{
+   position: absolute;
+   top: 16px;
+   left: 16px;
+}
+
+.zoomButtons .zoom{
+   font-size: 32px;
+   width: 40px;
+   height: 40px;
+   background-color: #dddddd66;
+   border-width: 2px;
+   border-color: #aaaaaa66;
+   border-radius: 8px;
+}
+
+.zoomButtons .zoom .text{
+   position: relative;
+   top: -4px;
+}
