@@ -25,7 +25,7 @@ export default class MapView extends Component {
     const position = [this.state.lat, this.state.lng]
     return (
       <div>
-        <Route exact path="/" render={()=>
+        <Route exact path="/home" render={()=>
           <Map id='map' center={position} zoom={this.state.zoom}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -33,15 +33,15 @@ export default class MapView extends Component {
             />
             <Marker position={position}>
               <Popup>
-                <Link to="/street">Gotta go FHAST</Link>
+                <Link to="street">Gotta go FHAST</Link>
                 <p class="centered">
-                  <img width="64" height="64" src={this.state.img} alt=""/>
+                  <Link to="street"><img width="96" src={this.state.img} alt=""/></Link>
                 </p>
               </Popup>
             </Marker>
           </Map>
         }/>
-        <Route path="/street" render={()=>
+        <Route exact path="/street" render={()=>
           <Street image={this.state.img}/>
         } />
       </div>

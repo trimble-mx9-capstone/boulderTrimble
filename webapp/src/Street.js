@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import Draggable from 'react-draggable'
 import './Street.css'
 
 class Street extends Component{
@@ -21,9 +22,19 @@ class Street extends Component{
     this.setState({'zoom': newZoom});
   }
 
+  /*
+      <div className="street">
+        <img src={this.props.image} alt="" width={this.state.zoom+"%"} id="image"></img>
+        <div className="zoomButtons">
+          <button className="zoom" onClick={this.zoomIn}><div className = "text">+</div></button>
+          <p><button className="zoom" onClick={this.zoomOut}><div className = "text">-</div></button></p>
+        </div>
+      </div>
+  */
+
   render(){
     return (
-      <div>
+      <div className="street">
         <img src={this.props.image} alt="" width={this.state.zoom+"%"} id="image"></img>
         <div className="zoomButtons">
           <button className="zoom" onClick={this.zoomIn}><div className = "text">+</div></button>
