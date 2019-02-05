@@ -25,7 +25,7 @@ export default class MapView extends Component {
     const position = [this.state.lat, this.state.lng]
     return (
       <div>
-        <Route exact path="/" render={()=>
+        <Route exact path="/home" render={()=>
             <div class="shadow p-3 mb-5 bg-white rounded">
                 <Map id='map' center={position} zoom={this.state.zoom}>
                     <TileLayer
@@ -35,15 +35,15 @@ export default class MapView extends Component {
                     <Marker position={position}>
                         <Popup>
                         <Link to="/street">Gotta go FHAST</Link>
-                            <p class="centered">
-                            <img width="64" height="64" src={this.state.img} alt=""/>
+                        <p class="centered">
+                          <Link to="street"><img width="96" src={this.state.img} alt=""/></Link>
                         </p>
                         </Popup>
                     </Marker>
                 </Map>
             </div>
         }/>
-        <Route path="/street" render={()=>
+        <Route exact path="/street" render={()=>
           <Street image={this.state.img}/>
         } />
       </div>
