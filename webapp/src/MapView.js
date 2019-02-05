@@ -11,6 +11,33 @@ type State = {
   img: string
 }
 
+var obj1 = {
+    type: "fireHydrant",
+    location: {
+        city: "Boulder",
+        lat: 40.016869,
+        lng: -105.279617,
+    }
+} 
+
+var obj2 = {
+    type: "stopLight",
+    location: {
+        city: "Boulder",
+        lat: 40.017924, 
+        lng: -105.271966,
+    }
+} 
+
+var obj3 = {
+    type: "stopLight",
+    location: {
+        city: "Boulder",
+        lat: 40.024267, 
+        lng: -105.270653,
+    }
+} 
+
 export default class MapView extends Component {
   state = {
     lat: 40.016869,
