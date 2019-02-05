@@ -62,15 +62,6 @@
                 actionsBox: true,
             });
             $('.selectpicker').selectpicker('selectAll');
-            $('.selectpicker').change(() => {
-                var omittedObjects = [];
-                $("#filterSelect option:not(:selected)").each(function(){
-                    omittedObjects.push($(this).val());
-                });
-                omittedObjects.forEach(object => {
-                    $(".fireHydrant").hide();
-                });
-            });
         });
     </script>
   </body>
