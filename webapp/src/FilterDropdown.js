@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 export default class FilterDropdown extends Component {
     render() {
         return (
-            <select className="selectpicker float-right" multiple>
-                <option>Fire hydrants</option>
-                <option>Stop lights</option>
-                <option>Stop signs</option>
+            <select className="selectpicker float-right" id="filterSelect" multiple>
+                <option value="fireHydrant">Fire hydrants</option>
+                <option value="stopLight">Stop lights</option>
+                <option value="stopSign">Stop signs</option>
             </select>
         )
     }
