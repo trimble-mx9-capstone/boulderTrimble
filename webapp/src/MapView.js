@@ -11,6 +11,40 @@ type State = {
   img: string
 }
 
+var obj1 = {
+    type: "fireHydrant",
+    location: {
+        city: "Boulder",
+        position: [40.016869, -105.279617]
+    }
+} 
+
+var obj2 = {
+    type: "stopLight",
+    location: {
+        city: "Boulder",
+        position: [40.017924, -105.271966]
+    }
+} 
+
+var obj3 = {
+    type: "stopLight",
+    location: {
+        city: "Boulder",
+        position: [40.024267, -105.270653]
+    }
+} 
+
+const pins = [obj1, obj2, obj3];
+const pinsList = pins.map((pin) => 
+    <Marker position={pin.location.position} title={pin.type}>
+        <Popup>
+            <Link to="/street">Gotta go FHAST</Link>
+            <p class="centered">This is a {pin.type} object</p>
+        </Popup>
+    </Marker>
+);
+
 export default class MapView extends Component {
   state = {
     lat: 40.016869,
@@ -32,14 +66,7 @@ export default class MapView extends Component {
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={position}>
-                        <Popup>
-                        <Link to="/street">Gotta go FHAST</Link>
-                            <p class="centered">
-                            <img width="64" height="64" src={this.state.img} alt=""/>
-                        </p>
-                        </Popup>
-                    </Marker>
+                    {pinsList}
                 </Map>
             </div>
         }/>
