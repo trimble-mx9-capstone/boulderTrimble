@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
-import {Route, Link} from 'react-router-dom';
-import LinkContainer from 'react-router-bootstrap';
 
 export default class AppNav extends Component {
   render() {

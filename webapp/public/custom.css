@@ -5,6 +5,16 @@
 #main_container {
     margin-right:50px;
     margin-left:50px;
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+#filter-div{
+    width:auto;
+    min-height: 50px;
+}
+
+#filter-label {
+    padding-top:10px;
+    margin-right:10px;
 }

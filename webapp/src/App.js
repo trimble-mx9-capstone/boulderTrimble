@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MapView from './MapView';
-import {Route} from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import Filter from './Filter'
 import AppNav from './AppNav'
 
 export default class App extends Component {
@@ -9,7 +8,8 @@ export default class App extends Component {
     return (
       <div>
         <AppNav/>
-        <div id='main_container' class="shadow p-3 mb-5 bg-white rounded">
+        <div id='main_container'>
+            <Filter/>
             <MapView/>
         </div>
       </div>
