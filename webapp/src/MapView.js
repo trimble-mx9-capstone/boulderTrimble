@@ -53,7 +53,7 @@ class MapView extends Component {
             ],
             lat: 40.016869,
             lng: -105.279617,
-            zoom: 13,
+            zoom: 14,
             img: "sample_image.jpg"
         }
     }
@@ -66,7 +66,7 @@ class MapView extends Component {
             if(selectedOptions.includes(marker.type)){
                 visibleMarkers.push(
                     <Marker position={marker.location.position} key={i} title={marker.type}>
-                        <Popup>
+                        <Popup className="popup">
                             <Link to="/street">Gotta go FHAST</Link>
                             <p className="centered">This is a {marker.type} object</p>
                         </Popup>
@@ -103,7 +103,7 @@ class MapView extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        selected: state.dropdown.selected, //selected is the prop for this component, mapped to the state.dropdown.selected prop in the redux store
+        selected: state.filter.selected, //selected is the prop for this component, mapped to the state.dropdown.selected prop in the redux store
         markers: state.markers
     }
 }

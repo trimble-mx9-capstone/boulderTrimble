@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import index from './IndexReducer';
-import dropdown from './FilterDropdownReducer';
+import filter from './FilterDropdownReducer';
+import location from './LocationDropdownReducer';
 
 export default combineReducers({
     index,
-    dropdown
+    filter,
+    location
 });

@@ -18,3 +18,8 @@
     padding-top:10px;
     margin-right:10px;
 }
+
+.leaflet-popup-content-wrapper {
+    height:175px;
+    width:250px;
+}
