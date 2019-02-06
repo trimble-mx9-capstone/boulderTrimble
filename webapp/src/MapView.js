@@ -3,6 +3,8 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import Street from './Street'
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 type State = {
   lat: number,
@@ -45,7 +47,7 @@ const pinsList = pins.map((pin) =>
     </Marker>
 );
 
-export default class MapView extends Component {
+class MapView extends Component {
   state = {
     lat: 40.016869,
     lng: -105.279617,
@@ -56,6 +58,7 @@ export default class MapView extends Component {
   //<button onClick=""></button>
 
   render() {
+    console.log("WOW: " + this.props.selected);
     const position = [this.state.lat, this.state.lng]
     return (
       <div>
@@ -78,3 +81,13 @@ export default class MapView extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        selected: state.dropdown.selected
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MapView);

@@ -2,7 +2,7 @@ let defaultState = {
     selected: ["fireHydrant", "stopSign", "stopLight"] 
 };
 
-const reducers = (state = defaultState, action) => {
+const reducer = (state = defaultState, action) => {
     switch(action.type){
         case 'UPDATE_FILTER': 
             return {
@@ -14,4 +14,4 @@ const reducers = (state = defaultState, action) => {
     }
 }
 
-export default reducers;
+export default reducer;

@@ -28,6 +28,8 @@ class FilterDropdown extends Component {
         this.state = {
             selected: selectedOptions,
         };
+
+        this.props.updateFilter(selectedOptions);
     }
     render() {
         return (
