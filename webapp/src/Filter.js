@@ -6,7 +6,7 @@ export default class Filter extends Component {
         return (
             <div id="filter-div">
                 <FilterDropdown/>
-                <p id="filter-label" class="float-right h6">Object Filter</p>
+                <p id="filter-label" className="float-right h6">Object Filter</p>
             </div>
         )
     }
