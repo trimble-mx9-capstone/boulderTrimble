@@ -41,7 +41,15 @@ class MapView extends Component {
                         position: [40.024267, -105.270653]
                     },
                     visible: true,
-                }          
+                },
+                {
+                    type: "stopSign",
+                    location: {
+                        city: "Boulder",
+                        position: [40.023007, -105.26653]
+                    },
+                    visible: true,
+                }        
             ],
             lat: 40.016869,
             lng: -105.279617,
