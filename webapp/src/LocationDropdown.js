@@ -39,7 +39,7 @@ class LocationDropdown extends Component {
     render() {
         var options = this.buildCityOptions()
         return (
-            <select className="selectpicker" id="citySelect" onChange={this.handleChange}>
+            <select className="selectpicker" id="city-select" onChange={this.handleChange}>
                 {options}
             </select>
         )
