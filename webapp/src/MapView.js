@@ -72,10 +72,34 @@ class MapView extends Component {
                     type: "stopSign",
                     location: {
                         city: "Denver",
-                        latLong: [40.023007, -105.26653]
+                        latLong: [39.742043, -104.991531]
                     },
                     visible: true,
-                }       
+                },
+                {
+                    type: "stopSign",
+                    location: {
+                        city: "Denver",
+                        latLong: [39.622043, -104.971531]
+                    },
+                    visible: true,
+                },
+                {
+                    type: "stopLight",
+                    location: {
+                        city: "Denver",
+                        latLong: [39.662043, -104.961531]
+                    },
+                    visible: true,
+                },
+                {
+                    type: "fireHydrant",
+                    location: {
+                        city: "Denver",
+                        latLong: [39.68, -104.981531]
+                    },
+                    visible: true,
+                }          
             ],
             zoom: 14,
             img: "sample_image.jpg"
