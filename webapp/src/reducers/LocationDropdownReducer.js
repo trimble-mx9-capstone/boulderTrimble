@@ -1,15 +1,13 @@
 let defaultState = { 
-    location: "Boulder",
-    lat: 40.016869,
-    lng: -105.279617,
+    city: "boulder"
 };
 
 const reducer = (state = defaultState, action) => {
     switch(action.type){
-        case 'UPDATE_FILTER': 
+        case 'UPDATE_CITY': 
             return {
                 ...state, 
-                selected: action.selectedOptions
+                city: action.city
             }
         default:
             return state;
