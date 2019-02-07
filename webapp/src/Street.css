@@ -1,0 +1,24 @@
+.street{
+   position: relative;
+}
+
+.street .zoomButtons{
+   position: absolute;
+   top: 16px;
+   left: 16px;
+}
+
+.street .zoomButtons .zoom{
+   font-size: 32px;
+   width: 40px;
+   height: 40px;
+   background-color: #dddddd66;
+   border-width: 2px;
+   border-color: #aaaaaa66;
+   border-radius: 8px;
+}
+
+.street .zoomButtons .zoom .text{
+   position: relative;
+   top: -10px;
+}
