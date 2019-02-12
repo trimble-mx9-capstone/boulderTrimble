@@ -3,6 +3,10 @@ import json;
 
 
 
+#Create directory class
+def create_directory_object(object):
+    return True
+
 #Given host=ML-Capstone-2018-2019 - Get root node of Trimble Groups Directory
 def get_directory_name(host,bearer_token):
     url = "https://"+host+"/api/browse"
