@@ -5,6 +5,8 @@ import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import ReactImageMagnify from 'react-image-magnify';
+import './MapView.css'
 
 type State = {
   lat: number,
@@ -110,7 +112,14 @@ class MapView extends Component {
         var markers = this.state.markers; 
         var selectedOptions = this.props.selected;
         var city = this.props.city; 
+        var img = this.state.img;
+        var i = new Image();
+        i.src = this.state.img;
+        var wid = i.width;
+        var hei = i.height;
         var visibleMarkers = [];
+        // enlargedImageClassName:"img",
+                                    
         markers.forEach(function(marker, i){
             if(selectedOptions.includes(marker.type) && city === marker.location.city.toLowerCase()){
                 visibleMarkers.push(
@@ -118,6 +127,27 @@ class MapView extends Component {
                         <Popup className="popup">
                             <Link to="/street">Gotta go FHAST</Link>
                             <p className="centered">This is a {marker.type} object</p>
+                            <p className="centered">    
+                                <ReactImageMagnify{...{
+                                    smallImage:{
+                                        width: 192,
+                                        height: 192*hei/wid,
+                                        src: img,
+                                        isFluidWidth: true
+                                    }, largeImage:{
+                                        src: img,
+                                        width: 1024,
+                                        height: 1024*hei/wid
+                                    }, enlargedImageContainerStyle:{
+                                        "border-width":"4px",
+                                        "border-radius":"4px",
+                                        "border-color":"#555555aa"
+                                    }, enlargedImageContainerDimensions:{
+                                        width: '200%',
+                                        height: '200%'
+                                    }
+                                }} />
+                            </p>
                         </Popup>
                     </Marker>
                 );
