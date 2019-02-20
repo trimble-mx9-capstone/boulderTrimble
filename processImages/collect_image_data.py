@@ -1,8 +1,8 @@
-import numpy as np;
-import pandas as pd;
-import requests;
-import json;
-import urllib.request as urllib
+import numpy as np
+import pandas as pd
+import requests
+import json
+import sys
 
 import authentication as auth
 
@@ -15,9 +15,6 @@ import processImages as pi
 
 #External Classes
 from Filesystem import Filesystem, File, Directory ,filesystemFactory, create_file_object
-
-
-
 
 
 
@@ -34,7 +31,7 @@ def main():
         with open("authentication.txt") as f:
             content = f.readlines()
         content = [x.strip() for x in content]
-        print(content)
+
     except:
         print("\nError: No authentiction file. Please make one and append user-associated tokens to it.\n")
         exit(0)
@@ -61,7 +58,7 @@ def main():
 
     while True:
 
-        print("Please choose: \n")
+        print("Please choose:")
         print("1. Display Current Directory")
         print("2. List Files / Move to a Sub-Directory")
         print("3. Collect Images From Current Directory")
@@ -77,33 +74,28 @@ def main():
         try:
             client_choice = int(input("Enter 1, 2, 3 or 4\n"))
             if client_choice in [1,2,3,4]:
-                if not (client_choice > 2):
-                    if not (client_choice > 1):
-                        #1
-                        current_directory.explainSelf()
+                if client_choice == 1:
+                    current_directory.explainSelf()
+                    pass
+                elif client_choice == 2:
+                    temp = current_directory.listChildren(host, b_token)
+                    if temp:
+                        current_directory = temp
 
-                    else:
-                        #List and let them choose which directory they want to enter
-                        temp = current_directory.listChildren(host, b_token)
-                        if temp:
-                            current_directory = temp
-
-
-
-                #3
-                else:
-                    if client_choice == 4:
-                        exit(0)
+                elif client_choice == 3:
                     current_directory.collectImages(host, b_token)
+                else:
+                    break
+
 
 
         except ValueError:
-            print("Invalid Input\n")
-
-
+            print("Invalid Input: Value Error\n")
+        except: print("Invalid Input\n")
 
 
 
 
 if  __name__ =='__main__':
     main()
+    sys.exit()
