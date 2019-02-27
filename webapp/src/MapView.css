@@ -1,3 +1,4 @@
-.popup{
-   height: "400px"
+.popup .leaflet-popup-content-wrapper{
+    height:250px;
+    width:250px;
 }
