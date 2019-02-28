@@ -27,7 +27,7 @@ class App extends Component {
             <div>
                 <AppNav/>
                 <div id='main_container'>
-                    <Button onClick={this.handleClick} variant="primary">Test</Button>
+                    <Button onClick={this.handleClick} variant="primary">Fetch data (Test)</Button>
                     <div>{this.state.text}</div>
                     <Filter/>
                     <MapView/>
