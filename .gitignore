@@ -5,6 +5,7 @@ __pycache__
 
 # dependencies
 /webapp/node_modules
+/server/node_modules
 /webapp/.pnp
 .pnp.js
 package-lock.json
@@ -21,7 +22,7 @@ package-lock.json
 .env.development.local
 .env.test.local
 .env.production.local
-
+*.swp
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
