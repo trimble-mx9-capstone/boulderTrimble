@@ -5,6 +5,7 @@ __pycache__
 
 # dependencies
 /webapp/node_modules
+/server/node_modules
 /webapp/.pnp
 .pnp.js
 package-lock.json
