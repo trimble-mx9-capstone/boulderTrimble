@@ -4,9 +4,9 @@ __pycache__
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/webapp/client/node_modules
+/webapp/server/client/node_modules
 /webapp/server/node_modules
-/webapp/client/.pnp
+/webapp/server/client/.pnp
 .pnp.js
 package-lock.json
 

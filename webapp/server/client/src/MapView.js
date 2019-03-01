@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import Street from './Street'
-import {Route} from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import ReactImageMagnify from 'react-image-magnify';
 import './MapView.css'
 
