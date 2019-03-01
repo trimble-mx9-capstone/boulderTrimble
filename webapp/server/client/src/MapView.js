@@ -107,7 +107,7 @@ class MapView extends Component {
         }
     }
     componentDidMount() {
-        this.buildMarkerList()
+        this.forceUpdate()
     }
 
     buildMarkerList() {
