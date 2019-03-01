@@ -106,6 +106,9 @@ class MapView extends Component {
             img: "sample_image.jpg"
         }
     }
+    componentDidMount() {
+        this.buildMarkerList()
+    }
 
     buildMarkerList() {
         var markers = this.state.markers; 
