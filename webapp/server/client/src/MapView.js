@@ -135,12 +135,6 @@ class MapView extends Component {
             console.log(fullStr)
             return(fullStr.substring(2));
         };
-        // enlargedImageClassName:"img",
-        // <Link to="/street">Gotta go FHAST</Link>
-        // <p className="centered">This is a {marker.type} object</p>
-        //<p>{
-        //    marker.types.reduce((str, mark) => str + ", " + mark)
-        //}</p>
                                     
         markers.forEach(function(marker, i){
             var long = marker.location.latLong[1];
