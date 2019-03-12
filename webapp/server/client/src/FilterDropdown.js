@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { updateFilter } from './actions/FilterDropdownActions';
 
 
-const allOptions = ["fireHydrant", "stopLight", "stopSign"];
+const allOptions = ["fireHydrant", "streetLight", "stopSign"];
 
 class FilterDropdown extends Component {
     constructor(){
@@ -35,7 +35,7 @@ class FilterDropdown extends Component {
         return (
             <select className="selectpicker float-right" id="filterSelect" onChange={this.handleChange} multiple>
                 <option value="fireHydrant">Fire hydrants</option>
-                <option value="stopLight">Stop lights</option>
+                <option value="streetLight">Stop lights</option>
                 <option value="stopSign">Stop signs</option>
             </select>
         )

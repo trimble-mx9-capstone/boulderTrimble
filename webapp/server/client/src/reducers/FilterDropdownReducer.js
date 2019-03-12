@@ -1,5 +1,5 @@
 let defaultState = { 
-    selected: ["fireHydrant", "stopSign", "stopLight"] 
+    selected: ["fireHydrant", "stopSign", "streetLight"] 
 };
 
 const reducer = (state = defaultState, action) => {

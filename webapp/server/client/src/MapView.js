@@ -38,7 +38,7 @@ class MapView extends Component {
         this.state = {
             markers: [
                 {
-                    types: ["fireHydrant","stopLight"],
+                    types: ["fireHydrant","streetLight"],
                     location: {
                         city: "Boulder",
                         latLong: [40.016869, -105.279617]
@@ -46,7 +46,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    types: ["stopLight"],
+                    types: ["streetLight"],
                     location: {
                         city: "Boulder",
                         latLong: [40.017924, -105.271966]
@@ -54,7 +54,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    types: ["stopLight"],
+                    types: ["streetLight"],
                     location: {
                         city: "Boulder",
                         latLong: [40.024267, -105.270653]
@@ -86,7 +86,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    types: ["stopLight"],
+                    types: ["streetLight"],
                     location: {
                         city: "Denver",
                         latLong: [39.662043, -104.961531]
@@ -122,7 +122,7 @@ class MapView extends Component {
         var visibleMarkers = [];
         var cit = this.locations[city];
         const newString = (fullStr, str, types) => {
-            var english = {'fireHydrant':'Fire Hydrant', 'stopLight':'Stop Light', 'stopSign':'Stop Sign'};
+            var english = {'fireHydrant':'Fire Hydrant', 'streetLight':'Stop Light', 'stopSign':'Stop Sign'};
             var len = types.filter(t => t === str).length;
             var retStr = fullStr + ", " + len + " " + english[str];
             if (len > 1) retStr += "s";
