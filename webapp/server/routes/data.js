@@ -6,21 +6,17 @@ router.get('/fetchMarkers', function(req, res, next) {
     
     var threshold = 0.5;
     var fs = require('fs');
-    var file = fs.readFileSync(__dirname + "/../../../../testData/t3.jpg.json.out");
+    var file = fs.readFileSync(__dirname+"/test.json");
     var js = JSON.parse(file);
-    var obj = js.predictions[0];
-    var numToVal = {1: "stopLight", 2: "stopSign", 3: "fireHydrant"};
-    // Default Latitude
-    var latitude = 40.016869;
-    // Default Longitude
-    var longitude = -105.271966;
-    var objectsRecognized = [];
-    for (i = 0; i < obj.detection_scores.length; i++){
-        if (obj.detection_scores[i] > threshold){
-            objectsRecognized = objectsRecognized.concat([numToVal[obj.detection_classes[i]]])
-        } else break;
+    var valToLabel = {"stopSign": "stopSign", "streetLight": "stopLight", "fireHydrant": "fireHydrant"};
+    var markerObj = [];
+    var objs = js.detected;
+    for (i = 0; i < objs.length; i++){
+        var ob = objs[i]
+        var newTypes = ob.objs.reduce((arr, a) => arr.concat(valToLabel[a]), []);
+        var marker = {types: newTypes, location: {city: "", latLong: [ob.lat, ob.long]}, visible: true};
+        markerObj = markerObj.concat(marker);
     }
-    var markerObj = {types: objectsRecognized, location: {city: "", latLong: [latitude, longitude]}, visible: true};
     res.send(markerObj);
 });
 
