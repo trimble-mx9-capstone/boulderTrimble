@@ -38,7 +38,7 @@ class MapView extends Component {
         this.state = {
             markers: [
                 {
-                    type: "fireHydrant",
+                    types: ["fireHydrant","streetLight"],
                     location: {
                         city: "Boulder",
                         latLong: [40.016869, -105.279617]
@@ -46,7 +46,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "stopLight",
+                    types: ["streetLight"],
                     location: {
                         city: "Boulder",
                         latLong: [40.017924, -105.271966]
@@ -54,7 +54,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "stopLight",
+                    types: ["streetLight"],
                     location: {
                         city: "Boulder",
                         latLong: [40.024267, -105.270653]
@@ -62,7 +62,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "stopSign",
+                    types: ["stopSign", "stopSign"],
                     location: {
                         city: "Boulder",
                         latLong: [40.023007, -105.26653]
@@ -70,7 +70,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "stopSign",
+                    types: ["stopSign"],
                     location: {
                         city: "Denver",
                         latLong: [39.742043, -104.991531]
@@ -78,7 +78,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "stopSign",
+                    types: ["stopSign"],
                     location: {
                         city: "Denver",
                         latLong: [39.622043, -104.971531]
@@ -86,7 +86,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "stopLight",
+                    types: ["streetLight"],
                     location: {
                         city: "Denver",
                         latLong: [39.662043, -104.961531]
@@ -94,7 +94,7 @@ class MapView extends Component {
                     visible: true,
                 },
                 {
-                    type: "fireHydrant",
+                    types: ["fireHydrant"],
                     location: {
                         city: "Denver",
                         latLong: [39.68, -104.981531]
@@ -120,15 +120,31 @@ class MapView extends Component {
         var wid = i.width;
         var hei = i.height;
         var visibleMarkers = [];
-        // enlargedImageClassName:"img",
+        var cit = this.locations[city];
+        const newString = (fullStr, str, types) => {
+            var english = {'fireHydrant':'Fire Hydrant', 'streetLight':'Stop Light', 'stopSign':'Stop Sign'};
+            // var len = types.filter(t => t === str).length;
+            // var retStr = fullStr + ", " + len + " " + english[str];
+            // if (len > 1) retStr += "s";
+            var retStr = fullStr + ", " + english[str];
+            return retStr;
+        };
+        const getNames = (types) => {
+            var x = new Set(types);
+            var fullStr = ""
+            x.forEach(s => fullStr = newString(fullStr, s, types))
+            console.log(fullStr)
+            return(fullStr.substring(2));
+        };
                                     
         markers.forEach(function(marker, i){
-            if(selectedOptions.includes(marker.type) && city === marker.location.city.toLowerCase()){
+            var long = marker.location.latLong[1];
+            var lat = marker.location.latLong[0];
+            var conditional = marker.types.filter(t => selectedOptions.includes(t)).length > 0
+            if (conditional && Math.abs(lat-cit.latLong[0]) < 0.15 && Math.abs(long-cit.latLong[1]) < 0.15){
                 visibleMarkers.push(
                     <Marker position={marker.location.latLong} key={i} title={marker.type}>
                         <Popup className="popup">
-                            <Link to="/street">Gotta go FHAST</Link>
-                            <p className="centered">This is a {marker.type} object</p>
                             <p className="centered">    
                                 <ReactImageMagnify{...{
                                     smallImage:{
@@ -150,6 +166,9 @@ class MapView extends Component {
                                     }
                                 }} />
                             </p>
+                            <p>Identified Objects: {getNames(marker.types)}</p>
+                            <p/>
+                            <p>{"Location: " + lat + ", " + long}</p>
                         </Popup>
                     </Marker>
                 );

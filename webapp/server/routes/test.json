@@ -1,0 +1,52 @@
+{
+   "detected": [
+      {
+         "lat":40.016869,
+         "long":-105.279617,
+         "objs":["fireHydrant", "streetLight"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":40.017924,
+         "long":-105.271966,
+         "objs":["streetLight"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":40.024267,
+         "long":-105.270653,
+         "objs":["streetLight"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":40.023007,
+         "long":-105.26653,
+         "objs":["stopSign", "stopSign"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":39.742043,
+         "long":-104.991531,
+         "objs":["streetLight"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":39.622043,
+         "long":-104.971531,
+         "objs":["streetLight"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":39.662043,
+         "long":-104.961531,
+         "objs":["streetLight"],
+         "url":"sample_image.jpg"
+      },
+      {
+         "lat":39.68,
+         "long":-104.981531,
+         "objs":["fireHydrant"],
+         "url":"sample_image.jpg"
+      }
+   ]
+}
