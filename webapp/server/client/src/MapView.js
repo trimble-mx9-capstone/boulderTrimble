@@ -122,7 +122,7 @@ class MapView extends Component {
         var visibleMarkers = [];
         var cit = this.locations[city];
         const newString = (fullStr, str, types) => {
-            var english = {'fireHydrant':'Fire Hydrant', 'streetLight':'Stop Light', 'stopSign':'Stop Sign'};
+            var english = {'fireHydrant':'Fire Hydrant', 'streetLight':'Street Light', 'stopSign':'Stop Sign'};
             // var len = types.filter(t => t === str).length;
             // var retStr = fullStr + ", " + len + " " + english[str];
             // if (len > 1) retStr += "s";
