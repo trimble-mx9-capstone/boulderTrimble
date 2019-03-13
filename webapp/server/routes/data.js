@@ -29,4 +29,8 @@ router.get('/images', function(req, res, next) {
     //res.send(markerObj);
 });
 
+router.post('/images', function(req, res, next) {
+    console.log(req)
+});
+
 module.exports = router;
