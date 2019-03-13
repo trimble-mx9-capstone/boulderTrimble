@@ -30,7 +30,22 @@ router.get('/images', function(req, res, next) {
 });
 
 router.post('/images', function(req, res, next) {
-    console.log(req)
+    var lat = req.body.lat;
+    var long = req.body.long;
+    var url = req.body.url; 
+    var has_stop_sign = req.body.has_stop_sign;
+    var has_street_light = req.body.has_street_light;
+
+    db.none('INSERT INTO images(latitude, longitude, url, has_stop_sign, has_street_light) VALUES ($1, $2, $3, $4, $5)', 
+        [lat, long, url, has_stop_sign, has_street_light])
+        .then(() => {
+            console.log('inserted...');
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    res.send(200)
+
 });
 
 module.exports = router;
