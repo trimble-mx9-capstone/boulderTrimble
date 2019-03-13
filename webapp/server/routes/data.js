@@ -3,7 +3,9 @@ var router = express.Router();
 var db = require('../connection')
 
 //Get marker data - placeholder.
-router.get('/fetchMarkers', function(req, res, next) {
+router.get('/images', function(req, res, next) {
+    var lat = req.query.lat; 
+    var long = req.query.long; 
     db.any('SELECT * FROM images')
         .then(function (data) {
             console.log('DATA: ', data)
