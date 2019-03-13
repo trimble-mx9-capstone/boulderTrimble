@@ -40,11 +40,12 @@ router.post('/images', function(req, res, next) {
         [lat, long, url, has_stop_sign, has_street_light])
         .then(() => {
             console.log('inserted...');
+            res.send(200)
         })
         .catch(error => {
             console.log(error);
+            res.send(500)
         });
-    res.send(200)
 
 });
 
