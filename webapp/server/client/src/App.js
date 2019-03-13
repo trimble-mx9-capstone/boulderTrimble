@@ -17,7 +17,7 @@ class App extends Component {
     }
 
     handleClick(){
-        fetch('/data/fetchMarkers')
+        fetch('/api/fetchMarkers')
             .then(res => res.text())
             .then(newText => this.setState({ text: newText }))
     }
