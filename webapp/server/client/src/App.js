@@ -17,9 +17,9 @@ class App extends Component {
     }
 
     handleClick(){
-        fetch('/api/images?lat=thisislat&long=thisislong')
+        /*fetch('/api/images?lat=thisislat&long=thisislong')
             .then(res => res.text())
-            .then(newText => this.setState({ text: newText }))
+            .then(newText => this.setState({ text: newText }))*/
     }
 
     render() {
