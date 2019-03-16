@@ -38,7 +38,7 @@ function createMarker(marker){
 const reducer = (state = defaultState, action) => {
     switch(action.type){
         case 'UPDATE_CITY': 
-            var newMarkers = generateMarkers(action.lat, action.lng, action.latRange, action.lngRange)
+            var newMarkers = generateMarkers(action.lat, action.lng, action.latRng, action.lngRng)
 
             return {
                 ...state, 
