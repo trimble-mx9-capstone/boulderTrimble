@@ -1,6 +1,11 @@
-export function updateCity(city, lat, lng){
+export function updateCity(city, lat, lng, latRng, lngRng, zoom){
     return {
         type: "UPDATE_CITY",
-        city
+        city,
+        lat,
+        lng,
+        latRng,
+        lngRng,
+        zoom
     }
 }

@@ -111,14 +111,11 @@ class MapView extends Component {
     }
 
     buildMarkerList() {
-        var markers = this.state.markers; 
+        // var markers = this.state.markers; 
+        var markers = this.props.markers;
+        console.log(this.props);
         var selectedOptions = this.props.selected;
-        var city = this.props.city; 
-        var img = this.state.img;
-        var i = new Image();
-        i.src = this.state.img;
-        var wid = i.width;
-        var hei = i.height;
+        var city = this.props.city;
         var visibleMarkers = [];
         var cit = this.locations[city];
         const newString = (fullStr, str, types) => {
@@ -138,10 +135,14 @@ class MapView extends Component {
         };
                                     
         markers.forEach(function(marker, i){
+            var j = new Image();
+            j.src = marker.img;
+            var wid = j.width;
+            var hei = j.height;
             var long = marker.location.latLong[1];
             var lat = marker.location.latLong[0];
             var conditional = marker.types.filter(t => selectedOptions.includes(t)).length > 0
-            if (conditional && Math.abs(lat-cit.latLong[0]) < 0.15 && Math.abs(long-cit.latLong[1]) < 0.15){
+            if (conditional){
                 visibleMarkers.push(
                     <Marker position={marker.location.latLong} key={i} title={marker.type}>
                         <Popup className="popup">
@@ -150,10 +151,10 @@ class MapView extends Component {
                                     smallImage:{
                                         width: 192,
                                         height: 192*hei/wid,
-                                        src: img,
+                                        src: marker.img,
                                         isFluidWidth: true
                                     }, largeImage:{
-                                        src: img,
+                                        src: marker.img,
                                         width: 1024,
                                         height: 1024*hei/wid
                                     }, enlargedImageContainerStyle:{
@@ -180,7 +181,7 @@ class MapView extends Component {
     render() {
         var city = this.props.city; 
         const position = this.locations[city].latLong
-        const zoom = this.locations[city].zoom
+        const zoom = this.props.zoom;
         var markers = this.buildMarkerList();
         return (
           <div>
@@ -207,7 +208,8 @@ const mapStateToProps = (state) => {
     return {
         selected: state.filter.selected, //selected is the prop for this component, mapped to the state.dropdown.selected prop in the redux store
         city: state.location.city, 
-        markers: state.markers
+        markers: state.location.markers,
+        zoom: state.location.zoom
     }
 }
 const mapDispatchToProps = (dispatch) => {
