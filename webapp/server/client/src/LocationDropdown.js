@@ -18,24 +18,24 @@ class LocationDropdown extends Component {
         };
         this.cities = {
             "boulder": {
-                latLong: [-105.239775, 40.029380],
-                lLRange: [0.123352, 0.130058],
+                latLong: [40.029380, -105.239775],
+                lLRange: [0.130058, 0.123352],
                 zoom: 12
             },
             "denver": {
-                latLong: [-104.854774, 39.764245],
-                lLRange: [0.510386, 0.299867],
-                zoom: 11
+                latLong: [39.764245, -104.854774],
+                lLRange: [0.299867, 0.510386],
+                zoom: 10
             },
             "erie": {
-                latLong: [-105.041599, 40.051276],
-                lLRange: [0.126273, 0.102037],
+                latLong: [40.051276, -105.041599],
+                lLRange: [0.102037, 0.126273],
                 zoom: 12
             },
             "broomfield": {
-                latLong: [-105.063447, 39.966673],
-                lLRange: [0.204725, 0.154943],
-                zoom: 12
+                latLong: [39.966673, -105.063447],
+                lLRange: [0.154943, 0.204725],
+                zoom: 11
             }
         }
     }

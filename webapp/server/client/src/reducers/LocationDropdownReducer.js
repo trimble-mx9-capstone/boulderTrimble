@@ -1,6 +1,8 @@
 let defaultState = { 
     city: "boulder",
-    zoom: 14,
+    zoom: 12,
+    lat: 40.029380,
+    long: -105.239775,
     markers: [
         {
             types: ["fireHydrant","streetLight"],
@@ -32,9 +34,11 @@ const reducer = (state = defaultState, action) => {
             var maxLat = action.lag+action.lagRange/2
             var minLng = action.lng-action.lngRange/2
             var maxLng = action.lng+action.lngRange/2
+            // var testVar = `[{"id":1,"latitude":"40.01689","longitude":"-105.279617","url":"sample_image.jpg","has_stop_sign":true,"has_street_light":true}]`
             fetch('/api/images?minLat='+minLat+'&maxLat='+maxLat+'&minLong='+minLng+'&maxLong='+maxLng)
             .then(res => res.text())
             .then(newText => toMarker = JSON.parse(newText))
+            // toMarker = JSON.parse(testVar)
             var newMarkers = []
             
             toMarker.forEach(pastMarker => newMarkers = newMarkers.concat(createMarker(pastMarker, action.city)))
@@ -45,7 +49,9 @@ const reducer = (state = defaultState, action) => {
                 ...state, 
                 city: action.city,
                 markers: newMarkers,
-                zoom: action.zoom
+                zoom: action.zoom,
+                lat: action.lat,
+                long: action.lng
             }
         default:
             return state;

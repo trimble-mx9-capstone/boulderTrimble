@@ -180,7 +180,7 @@ class MapView extends Component {
 
     render() {
         var city = this.props.city; 
-        const position = this.locations[city].latLong
+        const position = [this.props.lat, this.props.long]
         const zoom = this.props.zoom;
         var markers = this.buildMarkerList();
         return (
@@ -209,7 +209,9 @@ const mapStateToProps = (state) => {
         selected: state.filter.selected, //selected is the prop for this component, mapped to the state.dropdown.selected prop in the redux store
         city: state.location.city, 
         markers: state.location.markers,
-        zoom: state.location.zoom
+        zoom: state.location.zoom,
+        lat: state.location.lat,
+        long: state.location.long
     }
 }
 const mapDispatchToProps = (dispatch) => {
