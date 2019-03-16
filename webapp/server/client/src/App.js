@@ -19,7 +19,7 @@ class App extends Component {
     handleClick(){
         fetch('/api/images?minLat=-1000&maxLat=1000&minLong=-1000&maxLong=1000')
             .then(res => res.text())
-            .then(newText => this.setState({ text: newText }))*/
+            .then(newText => this.setState({ text: newText }))
     }
 
     render() {
