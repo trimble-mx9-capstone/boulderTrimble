@@ -4,9 +4,15 @@ var db = require('../connection')
 
 //Get marker data - placeholder.
 router.get('/images', function(req, res, next) {
-    var lat = req.query.lat; 
-    var long = req.query.long; 
-    db.any('SELECT * FROM images')
+    // var lat = req.query.lat; 
+    // var long = req.query.long; 
+    var minLat = req.query.minLat;
+    var maxLat = req.query.maxLat;
+    var minLong = req.query.minLong;
+    var maxLong = req.query.maxLong;
+    //db.any('SELECT * FROM images')
+    db.any('SELECT * from images WHERE latitude >= ' + minLat + ' AND latitude <= ' + maxLat +
+            ' AND longitude >= ' + minLong + ' AND longitude <= ' + maxLong)
         .then(function (data) {
             console.log('DATA: ', data)
             res.send(data)
@@ -41,7 +47,7 @@ router.post('/images', function(req, res, next) {
         .then(() => {
             console.log('inserted...');
             res.send(200)
-        })
+u        })
         .catch(error => {
             console.log(error);
             res.send(500)
