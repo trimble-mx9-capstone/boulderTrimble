@@ -2,8 +2,18 @@ import urllib.request as urllib
 import requests
 import shutil
 import os
+import boto3
+
 
 def save_images(image_urls,base_url, name, number_to_return):
+
+
+    bucket = 'sagemaker-inference-data'
+
+    s3 = boto3.client('s3')
+
+
+
     current_dir = os.getcwd()
     #This makes it easier to just get the file saved as whatever comes before any / in the filename -- because it will
     #be interpreted as a folder otherwise.
@@ -22,10 +32,14 @@ def save_images(image_urls,base_url, name, number_to_return):
                 os.makedirs(os.path.join(current_dir,"images"))
 
             #Save Image
-            with open(save_image_path+str(i), "wb+") as out_file:
+            local_image_path = save_image_path+str(i)+".jpeg"
+            with open(local_image_path, "wb+") as out_file:
                 shutil.copyfileobj(image.raw, out_file)
+
+
         except:
             print("Error in retrieving image.")
+        #s3.upload_file(local_image_path, bucket, "images/"+str(image_urls[0].split('/')[0]+str(i)+".jpeg") )
 
 
         if (i>number_to_return):
