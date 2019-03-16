@@ -6,11 +6,11 @@ import urllib.request as urllib
 
 import authentication as auth
 
-import handleDirectories as hd
+import handle_directories as hd
 
-import getImages as gi
+import get_images as gi
 
-import processImages as pi
+import process_images as pi
 
 class Filesystem():
     name = None
