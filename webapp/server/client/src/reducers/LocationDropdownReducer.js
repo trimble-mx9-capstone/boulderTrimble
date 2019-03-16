@@ -11,9 +11,10 @@ function generateMarkers(lat, long, latRange, longRange){
     var minLat = lat-latRange/2
     var maxLat = lat+latRange/2
     var minLong = long-longRange/2
-    var minLong = long+longRange/2
-    //var testVar = `[{"id":1,"latitude":"40.01689","longitude":"-105.279617","url":"sample_image.jpg","has_stop_sign":true,"has_street_light":true}]`
-    fetch('/api/images?minLat='+minLat+'&maxLat='+maxLat+'&minLong='+minLng+'&maxLong='+maxLng)
+    var maxLong = long+longRange/2
+    console.log(minLat, maxLat, minLong, maxLong)
+   // var testVar = `[{"id":1,"latitude":"40.01689","longitude":"-105.279617","url":"sample_image.jpg","has_stop_sign":true,"has_street_light":true}]`
+    fetch('/api/images?minLat='+minLat+'&maxLat='+maxLat+'&minLong='+minLong+'&maxLong='+maxLong)
             .then(res => res.text())
             .then(newText => toMarker = JSON.parse(newText))
     //var toMarker = JSON.parse(testVar)
