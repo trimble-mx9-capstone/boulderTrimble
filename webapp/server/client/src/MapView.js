@@ -111,13 +111,10 @@ class MapView extends Component {
     }
 
     buildMarkerList() {
-        // var markers = this.state.markers; 
+        //var markers = this.state.markers; 
         var markers = this.props.markers;
-        console.log(this.props);
         var selectedOptions = this.props.selected;
-        var city = this.props.city;
         var visibleMarkers = [];
-        var cit = this.locations[city];
         const newString = (fullStr, str, types) => {
             var english = {'fireHydrant':'Fire Hydrant', 'streetLight':'Street Light', 'stopSign':'Stop Sign'};
             // var len = types.filter(t => t === str).length;
@@ -133,7 +130,6 @@ class MapView extends Component {
             console.log(fullStr)
             return(fullStr.substring(2));
         };
-                                    
         markers.forEach(function(marker, i){
             var j = new Image();
             j.src = marker.img;

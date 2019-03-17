@@ -10,16 +10,6 @@ import { Button } from 'react-bootstrap';
 class App extends Component {
     constructor(props){
         super(props);
-
-        this.state = { text: "" }
-        this.handleClick = this.handleClick.bind(this);
-
-    }
-
-    handleClick(){
-        fetch('/api/images?minLat=-1000&maxLat=1000&minLong=-1000&maxLong=1000')
-            .then(res => res.text())
-            .then(newText => this.setState({ text: newText }))*/
     }
 
     render() {
@@ -27,8 +17,6 @@ class App extends Component {
             <div>
                 <AppNav/>
                 <div id='main_container'>
-                    <Button onClick={this.handleClick} variant="primary">Fetch data (Test)</Button>
-                    <div>{this.state.text}</div>
                     <Filter/>
                     <MapView/>
                 </div>
