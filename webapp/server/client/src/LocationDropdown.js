@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { updateCity } from './actions/LocationDropdownActions';
+import { imagesFetchData, updateCity } from './actions/LocationDropdownActions';
 
 
 
@@ -13,6 +13,7 @@ class LocationDropdown extends Component {
     constructor(){
         super();
         this.handleChange = this.handleChange.bind(this);
+        this.updateLocationData = this.updateLocationData.bind(this);
         this.state = {
             city: this.locations[0],
         };
@@ -40,14 +41,33 @@ class LocationDropdown extends Component {
         }
     }
 
-    handleChange(event){
-        var element = event.target
+    updateLocationData(element){
         var options = element.options
         var selectedOption = options[element.selectedIndex].value;
-        var latLong = this.cities[selectedOption].latLong;
-        var lLRange = this.cities[selectedOption].lLRange;
+        var lat = this.cities[selectedOption].latLong[0];
+        var long = this.cities[selectedOption].latLong[1];
+        var latRange = this.cities[selectedOption].lLRange[0];
+        var longRange = this.cities[selectedOption].lLRange[1];
         var zoom = this.cities[selectedOption].zoom;
-        this.props.updateCity(selectedOption, latLong[0], latLong[1], lLRange[0], lLRange[1], zoom);
+        var minLat = lat-latRange/2
+        var maxLat = lat+latRange/2
+        var minLong = long-longRange/2
+        var maxLong = long+longRange/2 
+
+        this.props.updateCity(selectedOption, lat, long, latRange, longRange, zoom);
+        
+        var url ='/api/images?minLat='+minLat+'&maxLat='+maxLat+'&minLong='+minLong+'&maxLong='+maxLong
+        this.props.imagesFetchData(url);
+    }
+
+    componentDidMount(){
+        var element = document.getElementById("city-select");
+        this.updateLocationData(element)
+    }
+
+    handleChange(event){
+        var element = event.target
+        this.updateLocationData(element);
     }
 
     buildCityOptions(){
@@ -78,7 +98,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ updateCity }, dispatch);
+    return bindActionCreators({ imagesFetchData, updateCity }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationDropdown)
