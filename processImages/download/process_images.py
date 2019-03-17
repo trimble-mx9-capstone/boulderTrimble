@@ -21,6 +21,9 @@ def save_images(image_urls,base_url, name, number_to_return):
 
 
     for i,url in enumerate(image_urls):
+        if (i >= number_to_return):
+            break;
+
         try:
             url_to_find = str(base_url.replace('{path}', url))
 
@@ -40,7 +43,3 @@ def save_images(image_urls,base_url, name, number_to_return):
         except:
             print("Error in retrieving image.")
         #s3.upload_file(local_image_path, bucket, "images/"+str(image_urls[0].split('/')[0]+str(i)+".jpeg") )
-
-
-        if (i>number_to_return):
-            break;
