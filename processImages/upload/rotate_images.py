@@ -39,7 +39,7 @@ def main():
             if exif[orientation] == 3:
                 image=image.rotate(180, expand=True)
             elif exif[orientation] == 6:
-                image=image.rotate(270, expand=True)
+                image = image.rotate(270, expand=True)
             elif exif[orientation] == 8:
                 image=image.rotate(90, expand=True)
 

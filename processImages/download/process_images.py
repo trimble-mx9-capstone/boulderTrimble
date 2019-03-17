@@ -8,11 +8,6 @@ import boto3
 def save_images(image_urls,base_url, name, number_to_return):
 
 
-    bucket = 'sagemaker-inference-data'
-
-    s3 = boto3.client('s3')
-
-
 
     current_dir = os.getcwd()
     #This makes it easier to just get the file saved as whatever comes before any / in the filename -- because it will
@@ -42,4 +37,3 @@ def save_images(image_urls,base_url, name, number_to_return):
 
         except:
             print("Error in retrieving image.")
-        #s3.upload_file(local_image_path, bucket, "images/"+str(image_urls[0].split('/')[0]+str(i)+".jpeg") )
