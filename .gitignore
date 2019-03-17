@@ -35,5 +35,6 @@ processImages/download/authentication.txt
 #image folders
 processImages/images
 processImages/images/*
-
+processImages/download/images/*
+processImages/download/images
 #AWS config
