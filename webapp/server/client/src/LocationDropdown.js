@@ -57,6 +57,7 @@ class LocationDropdown extends Component {
         this.props.updateCity(selectedOption, lat, long, latRange, longRange, zoom);
         
         var url ='/api/images?minLat='+minLat+'&maxLat='+maxLat+'&minLong='+minLong+'&maxLong='+maxLong
+        console.log(lat, long, latRange, longRange, minLat, maxLat, url)
         this.props.imagesFetchData(url);
     }
 

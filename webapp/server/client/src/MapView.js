@@ -145,14 +145,14 @@ class MapView extends Component {
                             <p className="centered">    
                                 <ReactImageMagnify{...{
                                     smallImage:{
-                                        width: 192,
-                                        height: 192*hei/wid,
+                                        width: 192*wid/hei,
+                                        height: 192,
                                         src: marker.img,
-                                        isFluidWidth: true
+                                        isFluidWidth: false
                                     }, largeImage:{
                                         src: marker.img,
-                                        width: 1024,
-                                        height: 1024*hei/wid
+                                        width: 1024*wid/hei,
+                                        height: 1024
                                     }, enlargedImageContainerStyle:{
                                         "border-width":"4px",
                                         "border-radius":"4px",
@@ -183,7 +183,7 @@ class MapView extends Component {
           <div>
             <Route exact path="/" render={()=>
                 <div className="shadow p-3 mb-5 bg-white rounded">
-                    <Map id='map' center={position} zoom={zoom}>
+                    <Map id='map' center={position} zoom={zoom} >
                         <TileLayer
                             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
