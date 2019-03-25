@@ -1,0 +1,9 @@
+#filter-div{
+    width:auto;
+    min-height: 50px;
+}
+
+#filter-label {
+    padding-top:10px;
+    margin-right:10px;
+}

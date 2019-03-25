@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FilterDropdown from './FilterDropdown'
 import LocationDropdown from './LocationDropdown';
+import './Filter.css'
 
 export default class Filter extends Component {
     render() {

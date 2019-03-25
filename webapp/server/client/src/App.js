@@ -6,7 +6,7 @@ import { exampleAction } from './actions/IndexActions.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
-
+import './App.css'
 class App extends Component {
     constructor(props){
         super(props);
