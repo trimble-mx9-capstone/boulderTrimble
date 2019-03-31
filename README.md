@@ -28,20 +28,20 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Starting react dev server](#startreact)  
 
 
-<a name="images"/>
-## Obtaining and Submitting Images    
-This section discusses...    
+<a name="images"></a>
+## Obtaining and Submitting Images  
+This section discusses how we pulled images from the Data Ocean and uploaded them to the appropriate S3 bucket.    
 
-<a name="obtain"/>  
+<a name="obtain"></a>
 ### Obtaining images from Data Ocean  
 
-<a name="submit"/>  
+<a name="submit"></a>
 ### Submitting to S3 Bucket for inference   
 
 
-<a name="s3"/>  
+<a name="s3"></a>
 ## S3   
-This section discusses...      
+This section discusses how we designed the hierarchy of our S3 buckets and how they should be navigated.     
 
-<a name="hierarchy"/>
+<a name="hierarchy"></a>
 ### Bucket hierarchy . 
