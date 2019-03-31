@@ -24,7 +24,7 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Installing dependencies for server](#backenddependencies)
   * [Starting server with necessary environment variables](#startserver)
 - [Local React App](#react)  
-  * [Installing dependencies for react app)(#reactdependencies)
+  * [Installing dependencies for react app](#reactdependencies)
   * [Starting react dev server](#startreact)  
 
 
