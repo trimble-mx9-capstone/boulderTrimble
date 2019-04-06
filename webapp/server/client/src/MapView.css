@@ -3,6 +3,6 @@
 }
 
 .popup .leaflet-popup-content-wrapper{
-    height:300px;
-    width:250px;
+    height:320px;
+    width:auto;
 }
