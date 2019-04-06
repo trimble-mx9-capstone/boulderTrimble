@@ -110,6 +110,7 @@ class MapView extends Component {
         this.forceUpdate()
     }
 
+
     buildMarkerList() {
         //var markers = this.state.markers; 
         var markers = this.props.markers;
@@ -133,12 +134,15 @@ class MapView extends Component {
         markers.forEach(function(marker, i){
             var j = new Image();
             j.src = marker.img;
-            var wid = j.width;
-            var hei = j.height;
+            // var wid = j.width;
+            // var hei = j.height;
+            var wid = 1024;
+            var hei = 1232;
+            console.log(wid, hei);
             var long = marker.location.latLong[1];
             var lat = marker.location.latLong[0];
             var conditional = marker.types.filter(t => selectedOptions.includes(t)).length > 0
-            if (conditional){
+            if (conditional && wid != 0){
                 visibleMarkers.push(
                     <Marker position={marker.location.latLong} key={i} title={marker.type}>
                         <Popup className="popup">
