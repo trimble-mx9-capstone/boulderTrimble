@@ -34,7 +34,7 @@ router.post('/images', function(req, res, next) {
         .then(() => {
             console.log('inserted...');
             res.send(200)
-u        })
+        })
         .catch(error => {
             console.log(error);
             res.send(500)
