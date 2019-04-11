@@ -44,4 +44,10 @@ This section discusses how we pulled images from the Data Ocean and uploaded the
 This section discusses how we designed the hierarchy of our S3 buckets and how they should be navigated.     
 
 <a name="hierarchy"></a>
-### Bucket hierarchy . 
+### Bucket hierarchy  
+Our S3 buckets consisted of five major directories.  
+- ```images```: The unlabeled images that will be passed through the inference pipeline. Scripts that migrate images of interest should insert their images into this directory.  
+- ```images-preprocessed```: The unlabeled images after they have been passed through any preprocessing steps (orientation fixes, filename fixes, etc).  
+- ```input```: The preprocessed images converted to JSON format. JSON is the format that our model expects.  
+- ```output```: The output files of the inference. One output file per input file. Formatted in JSON. Each file contains a set of regions that may contain an object, the label of each region, and the confidence that each label is correct.   
+- ```output-detections```: The images from ```images``` with bounding boxes drawn on them. These bounding boxes are defined by an image's output file in ```output```. These labeled images are then referenced by the website/webserver (which stores the URLs to each image in a database).   
