@@ -16,7 +16,8 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Accessing notebook instance](#accessnb)
   * [Running inference pipeline from notebooks](#inference)
 - [Setting up database locally](#database)
-  * [Schema](#dbschema)
+  * [Installing Postgres](#installpg) 
+  * [Creating database and table](#createdb)
 - [Local ExpressJS API Server](#server)  
   * [Installing dependencies for server](#backenddependencies)
   * [Starting server with necessary environment variables](#startserver)
@@ -54,11 +55,21 @@ Our S3 buckets consisted of five major directories.
 
 <a name="database"></a>
 ## Setting up database locally  
-In order to develop and test the application locally, you must create and run a PostgreSQL database. [Install PostgreSQL here](https://www.postgresql.org/download/). During setup, take note of your username and password. Once installed, use the ```psql``` command to start the PostgreSQL CLI tool. The following commands will be used to create the database and the necessary table. 
-1. After running the following command, exit the SQL shell using ```\q```.
+In order to develop and test the application locally, you must create and run a PostgreSQL database. The following sections will describe how to create the database and the necessary table. 
+
+<a name="installpg"></a>
+### Installing PostgreSQL 
+The following link will instruct you how to [install PostgreSQL](https://www.postgresql.org/download/). Please take note of any username or password that you configure in this step.  
+
+Test that the installation worked by using the ```psql``` command to start the SQL shell. 
+
+<a name="createdb"></a>
+### Creating database and table
+The following steps describe how to create the database and the table. Open the PostgreSQL shell by using the ```psql``` command.  
+1. Create a database and use the ```\q``` command to quit the PostgreSQL shell.
 ~~~sql 
 CREATE DATABASE capstone;
-~~~ 
+~~~  
 2. In bash, start the SQL shell again, this time passing it the desired database: ```psql capstone``` 
 3. Create the table with the following command.  
 ~~~sql 
