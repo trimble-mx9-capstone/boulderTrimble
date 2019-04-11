@@ -51,3 +51,33 @@ Our S3 buckets consisted of five major directories.
 - ```input```: The preprocessed images converted to JSON format. JSON is the format that our model expects.  
 - ```output```: The output files of the inference. One output file per input file. Formatted in JSON. Each file contains a set of regions that may contain an object, the label of each region, and the confidence that each label is correct.   
 - ```output-detections```: The images from ```images``` with bounding boxes drawn on them. These bounding boxes are defined by an image's output file in ```output```. These labeled images are then referenced by the website/webserver (which stores the URLs to each image in a database).   
+
+<a name="database"></a>
+### Setting up database locally  
+In order to develop and test the application locally, you must create and run a PostgreSQL database. [Install PostgreSQL here](https://www.postgresql.org/download/). During setup, take note of your username and password. Once installed, use the ```psql``` command to start the PostgreSQL CLI tool. The following commands will be used to create the database and the necessary table. 
+1. After running the following command, exit the SQL shell using ```\q```.
+~~~sql 
+CREATE DATABASE capstone;
+~~~ 
+2. In bash, start the SQL shell again, this time passing it the desired database: ```psql capstone``` 
+3. Create the table with the following command.  
+~~~sql 
+CREATE TABLE images (
+    id SERIAL,
+    latitude numeric,
+    longitude numeric,
+    url character varying(150),
+    has_stop_sign boolean,
+    has_street_light boolean
+); 
+~~~ 
+4. Once the table is created, try inserting into it with the following query: 
+~~~sql 
+INSERT INTO images(latitude, longitude, url, has_stop_sign, has_street_light) VALUES(-10.123, -12.001, 'img.example.com', false, true);
+~~~ 
+5. Verify that it worked: 
+~~~sql 
+SELECT * FROM images;
+~~~ 
+
+Once everything works, the database is ready for interaction with the development website. Make sure to remember the username/password (if any), as these will be needed to access the database from the development server. 
