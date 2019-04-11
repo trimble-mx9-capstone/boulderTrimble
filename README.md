@@ -15,9 +15,6 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
 - [SageMaker](#sagemaker) 
   * [Accessing notebook instance](#accessnb)
   * [Running inference pipeline from notebooks](#inference)
-- [Heroku](#heroku)
-  * [Pushing builds to Heroku](#pushheroku)
-  * [Viewing Heroku database contents](#dbheroku)
 - [Setting up database locally](#database)
   * [Schema](#dbschema)
 - [Local ExpressJS API Server](#server)  
@@ -26,6 +23,9 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
 - [Local React App](#react)  
   * [Installing dependencies for react app](#reactdependencies)
   * [Starting react dev server](#startreact)  
+- [Heroku](#heroku)
+  * [Pushing builds to Heroku](#pushheroku)
+  * [Viewing Heroku database contents](#dbheroku)
 
 
 <a name="images"></a>
