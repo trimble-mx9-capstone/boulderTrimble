@@ -66,7 +66,7 @@ Test that the installation worked by using the ```psql``` command to start the S
 <a name="createdb"></a>
 ### Creating database and table
 The following steps describe how to create the database and the table. Open the PostgreSQL shell by using the ```psql``` command.  
-1. Create a database and use the ```\q``` command to quit the PostgreSQL shell.
+1. Create a database using the following command. Once done, use the ```\q``` command to quit the PostgreSQL shell.
 ~~~sql 
 CREATE DATABASE capstone;
 ~~~  
