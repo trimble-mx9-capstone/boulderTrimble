@@ -53,7 +53,7 @@ Our S3 buckets consisted of five major directories.
 - ```output-detections```: The images from ```images``` with bounding boxes drawn on them. These bounding boxes are defined by an image's output file in ```output```. These labeled images are then referenced by the website/webserver (which stores the URLs to each image in a database).   
 
 <a name="database"></a>
-### Setting up database locally  
+## Setting up database locally  
 In order to develop and test the application locally, you must create and run a PostgreSQL database. [Install PostgreSQL here](https://www.postgresql.org/download/). During setup, take note of your username and password. Once installed, use the ```psql``` command to start the PostgreSQL CLI tool. The following commands will be used to create the database and the necessary table. 
 1. After running the following command, exit the SQL shell using ```\q```.
 ~~~sql 
