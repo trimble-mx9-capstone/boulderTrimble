@@ -19,6 +19,7 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Installing Postgres](#installpg) 
   * [Creating database and table](#createdb)
 - [Local ExpressJS API Server](#server)  
+  * [Installing node package manager (npm)](#npm) 
   * [Installing dependencies for server](#backenddependencies)
   * [Starting server with necessary environment variables](#startserver)
 - [Local React App](#react)  
@@ -92,3 +93,33 @@ SELECT * FROM images;
 ~~~ 
 
 Once everything works, the database is ready for interaction with the development website. Make sure to remember the username/password (if any), as these will be needed to access the database from the development server. 
+
+
+<a name="server"></a>
+## Local ExpressJS API Server 
+The ExpressJS API server is used for two purposes: routing POST requests from SageMaker and GET requests from the web app client. This section details how to setup the local API server for development.  
+
+<a name="npm"></a>
+### Installing node package manager (npm) 
+[Tutorial for installing Node and npm](https://www.npmjs.com/get-npm). This package manager will be used to install dependencies and run scripts. Check that it has been installed with ```npm -v``` 
+
+<a name="backenddependencies"></a>
+### Installing dependencies for server 
+Once npm is installed, navigate to your locally cloned boulderTrimble repo. Follow these steps to install dependencies for the server. 
+1. ```$ cd webapp/server```  
+2. ```$ npm install```  
+
+This should install all packages defined in ```package.json```. The packages are stored in the ```node_modules``` directory.
+
+<a name="startserver"></a>
+### Starting server with necessary environment variables
+Now that dependencies are installed, we will start the development server along with defining environment variables that the dev server will need. There are two environment variables of interest: ```PORT``` and ```DATABASE_URL```. As the names suggest, we are providing the server with a port and the URL of our local PostgreSQL database.
+
+1. Navigate to the ``` boulderTrimble/webapp/server ``` directory 
+2. Use the command ```$ PORT=3001 DATABASE_URL='your-database-url' node bin/www``` 
+
+   ```your-database-url``` should use the following format: ```postgres://user:password@netloc:port/dbname```.  
+   
+   Example: If you have the username 'username', the password 'password', the netloc 'localhost', the port 5432 (default), and the dbname 'capstone', the URL would look like so: ```postgres://username:password@localhost:5432/capstone```  
+   
+3. The server should start without any confirmations or messages. It is now ready to serve a local webapp/database!
