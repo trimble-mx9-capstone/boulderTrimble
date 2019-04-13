@@ -123,3 +123,26 @@ Now that dependencies are installed, we will start the development server along 
    Example: If you have the username 'username', the password 'password', the netloc 'localhost', the port 5432 (default), and the dbname 'capstone', the URL would look like so: ```postgres://username:password@localhost:5432/capstone```  
    
 3. The server should start without any confirmations or messages. It is now ready to serve a local webapp/database!
+
+<a name="react"></a>
+## Local React App
+The local react application holds the frontend of the application, which has a map with markers provided by the backend, which provides pictures that contain markers and more information for each of the markers. This section details how to setup the React Application for development. It is noted that to get full functionality, you will need to follow the guide to set up the ExpressJS API server in tandem.
+<a name="reactdependencies"></a>
+### Installing Dependencies for React App
+1. Follow the instructions for installing node package manager.
+2. Once you have npm installed, go to your locally cloned server. From there, navigate to ```boulderTrimble/webapp/server/client```.
+3. Use the command ```npm install```.
+This should do the same thing as the ExpressJS API server's dependencies instructions, which should install all packages defined in ```package.json```. The packages are stored in the ```node_modules``` directory.
+
+<a name="startreact"></a>
+### Starting React Dev Server
+The react dev server actually should be being run when the ExpressJS API server is being run, as the ExpressJS server runs a production build of the client and proxies everything onto the frontend server. As such, all we have to do is build the react application before starting the ExpressJS server.
+
+1. Navigate to the ```boulderTrimble/webapp/server/client``` directory
+2. Use the command ```npm run build``` to build the client.
+3. Follow the steps to build the Local ExpressJS API server.
+
+If you want to run it without the JSExpress API server, then the steps are slightly different. However, note that you will get no markers from doing this in the current build, as the frontend currently depends on the ExpressJS server.
+
+1. Navigate to the ```boulderTrimble/webapp/server/client``` directory.
+2. Use the command ```npm run start``` to start the server.
