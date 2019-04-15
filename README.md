@@ -36,7 +36,7 @@ This section discusses how we pulled images from the Data Ocean and uploaded the
 
 <a name="obtain"></a>
 ### Obtaining images from Data Ocean
-The script to run the command line interface to interact with the data ocean
+<b>The script to run the command line interface to interact with the data ocean</b>
 - processImages/download/collect_image_data.py
 
 This script needs some information in order to interact with the data ocean.
