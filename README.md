@@ -34,7 +34,6 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
 ## Obtaining and Submitting Images  
 This section discusses how we pulled images from the Data Ocean and uploaded them to the appropriate S3 bucket.  
 
-
 <a name="obtain"></a>
 ### Obtaining images from Data Ocean
 The script to run the command line interface to interact with the data ocean
@@ -42,7 +41,7 @@ The script to run the command line interface to interact with the data ocean
 
 This script needs some information in order to interact with the data ocean.
 
-Create a authentication.txt file in the processImages/download/ directory.
+<b>Create a authentication.txt file in the processImages/download/ directory.</b>
   - In the following order, include per line these values
     - host-identity
     - host
@@ -53,14 +52,14 @@ Create a authentication.txt file in the processImages/download/ directory.
 <a name="submit"></a>
 ### Submitting to S3 Bucket for inference   
 
-Transforming images to correct schema:
+<b>Transforming images to correct schema:</b>
 - After downloading images from the data ocean, or having them locally saved on your computer in a folder, you will need to run this script in order to transform (if needed) the images to the correct schema that our model will expect.
 - in the processImages/upload/ directory, run the rotate_images.py script.
   - it will take an argument for the pathway of the folder:
   - USAGE: python rotate_images.py -pathway [PATHWAY_TO_IMAGE_FOLDER]
   - Example: python rotate_images.py -pathway ../images/
 
-Uploading images to S3:
+<b>Uploading images to S3:</b>
 - The upload script is found in processImages/upload directory, named bucket_upload.py
 - Follow these initial configuration steps to upload correctly to the bucket of your choice.
 - Credentials:
