@@ -41,8 +41,8 @@ The script to run the command line interface to interact with the data ocean
 - processImages/download/collect_image_data.py
 
 This script needs some information in order to interact with the data ocean.
-### Steps
-- Create a authentication.txt file in the processImages/download/ directory.
+
+Create a authentication.txt file in the processImages/download/ directory.
   - In the following order, include per line these values
     - host-identity
     - host
