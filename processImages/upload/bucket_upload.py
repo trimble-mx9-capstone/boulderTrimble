@@ -4,7 +4,7 @@ from PIL import ExifTags
 import os
 import boto3
 
-bucket = 'sagemaker-inference-data'
+bucket = 'sagemaker-inference-testing'
 
 s3 = boto3.client('s3')
 
