@@ -27,7 +27,10 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Starting react dev server](#startreact)  
 - [Heroku](#heroku)
   * [Pushing builds to Heroku](#pushheroku)
+  * [Heroku scripts](#herokuscripts) 
   * [Viewing Heroku database contents](#dbheroku)
+- [Contact](#contact)
+- [License](#license)
 
 
 <a name="images"></a>
@@ -88,6 +91,10 @@ Our S3 buckets consisted of five major directories.
 - ```input```: The preprocessed images converted to JSON format. JSON is the format that our model expects.  
 - ```output```: The output files of the inference. One output file per input file. Formatted in JSON. Each file contains a set of regions that may contain an object, the label of each region, and the confidence that each label is correct.   
 - ```output-detections```: The images from ```images``` with bounding boxes drawn on them. These bounding boxes are defined by an image's output file in ```output```. These labeled images are then referenced by the website/webserver (which stores the URLs to each image in a database).   
+
+<a name="sagemaker"></a>
+## SageMaker 
+*Galen TODO* 
 
 <a name="database"></a>
 ## Setting up database locally  
@@ -181,3 +188,48 @@ If you want to run it without the JSExpress API server, then the steps are sligh
 
 1. Navigate to the ```boulderTrimble/webapp/server/client``` directory.
 2. Use the command ```npm run start``` to start the server.
+
+<a name="heroku"></a>
+## Heroku
+Our deployment environment of choice is Heroku. Heroku is the home of our API server, the production HTML/Javascript, and our database. **Before getting started with Heroku,** there are a few important steps to follow: 
+
+1. Contact Landon to be added as a contributor to the Heroku project. Include the email that is associated with your git account. 
+2. Install the Heroku CLI [here](https://devcenter.heroku.com/categories/command-line).  
+
+<a name="pushheroku"></a>
+### Pushing builds to Heroku
+Once the repo is cloned to your local machine and you have made changes that are ready for production, you can push the changes to Heroku. Follow these steps: 
+
+1. Add the Heroku git remote to your local repository: ```$ heroku git:remote -a fhast-detection``` 
+2. ```cd``` to the top level of the repository (boulderTrimble) 
+3. Commit & push all your changes to the master branch of GitHub; ensures that origin and Heroku are on the same build 
+4. From the top level directory, push the server subdirectory: ```$ git subtree push --prefix webapp/server heroku master```
+
+   *Note*: Heroku requires that the top level of the codebase contains the package.json for the server. The top level directory for boulderTrimble is not the server directory, so we push the server subdirectory instead of doing a traditional push.  
+
+5. The push initiates a build on Heroku. Done! 
+
+<a name="herokuscripts"></a>
+### Heroku scripts
+To build the client in production, Heroku executes a short set of commands after a push. This makes it easier for the developer; otherwise, the developer would have to build the client code on his local machine before pushing. These commands are found in ```boulderTrimble/webapp/server/package.json``` under ```scripts.heroku-postbuild```.  
+
+<a name="dbheroku"></a>
+### Viewing Heroku database contents 
+When testing the project and adding new images to the database, it might be worthwhile to SSH into the database and view/modify its contents. Follow these steps to do so: 
+
+1. ```cd``` into the repo on your local machine
+2. Use the command ```$ heroku pg:psql```
+3. Now you can view the contents of the database. For example,  
+
+~~~sql
+SELECT * FROM images;
+~~~ 
+
+<a name="contact"></a>
+## Contact
+If there any questions, please email the CU Capstone Google Group. Each team member will be notified of the email. 
+
+<a name="contact"></a>
+## License 
+*Galen TODO*  
+
