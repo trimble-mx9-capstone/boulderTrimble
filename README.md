@@ -29,6 +29,10 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Pushing builds to Heroku](#pushheroku)
   * [Heroku scripts](#herokuscripts) 
   * [Viewing Heroku database contents](#dbheroku)
+- [Issues / Pain points](#issues) 
+  * [AWS](#awsissues) 
+  * [Web application](#webissues) 
+  * [Heroku](#herokuissues) 
 - [Contact](#contact)
 - [License](#license)
 
