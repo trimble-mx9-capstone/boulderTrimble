@@ -13,8 +13,7 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
 - [S3](#s3)
   * [Bucket hierarchy](#hierarchy)
 - [SageMaker](#sagemaker)
-  * [Accessing notebook instance](#accessnb)
-  * [Running inference pipeline from notebooks](#inference)
+  * [SageMaker Notebook Instance](#notebookinstance)
 - [Setting up database locally](#database)
   * [Installing Postgres](#installpg)
   * [Creating database and table](#createdb)
@@ -34,6 +33,7 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Web application](#webissues) 
   * [Heroku](#herokuissues) 
 - [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 
