@@ -35,7 +35,6 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Heroku](#herokuissues) 
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
-- [License](#license)
 
 
 <a name="images"></a>
@@ -260,8 +259,4 @@ We would like to give thanks to the following sources.  Our team greatly appreci
 [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
 [How to deploy an Object Detection Model with TensorFlow serving](https://medium.freecodecamp.org/how-to-deploy-an-object-detection-model-with-tensorflow-serving-d6436e65d1d9) by Gaurav Kaila
-
-<a name="contact"></a>
-## License 
-*Galen TODO*  
 
