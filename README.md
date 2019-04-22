@@ -98,7 +98,16 @@ Our S3 buckets consisted of five major directories.
 
 <a name="sagemaker"></a>
 ## SageMaker 
-*Galen TODO* 
+Our object detection model training, deployment, and inference processes were all accomplished within Amazon's Sagemaker platform by writing custom scripts to work alongside [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection).  The following section contains information regarding the individual components that made these processes possible.
+
+<a name="notebookinstance"></a>
+### SageMaker Notebook Instance
+The scripts used to train, deploy, and perform inference using our object detection model are contained in the notebook instance titled **cucapstone-ml-notebook**.  This notebook instance can be opened by navigating to the Notebook Instances tab from the SageMaker dashboard, selecting the notebook **cucapstone-ml-notebook**, starting the notebook by clicking the 'start' action, and finally, once the notebook instance has started, clicking 'Open Jupyter' to open the notebook instance.
+
+Upon opening the notebook, please navigate to the directory named 'SageMaker'.  There are three important objects within this directory that permit the training, deployment, and inference processes:
+- ```container``` :  This subdirectory contains the object detection training and inference algorithms , associated TensorFlow Object Detection API methods and utilities, and the relevant scripts that SageMaker needs to host this model.  The contents of this subdirectory are have been pushed to a Docker image located in the ECR repository named **sagemaker-municipal-object-detection-inception-v2**.  SageMaker delegates training, deployment, and inference processes to this docker container.  Since the Docker image for our model code has already been created, this subdirectory will not need to be accessed unless the user desires to make changes to the model itself.
+- ```train_and_deploy.ipynb``` :  This Python notebook contains the methods for starting a training job for our object detection model.  This is done by creating a SageMaker estimator object (in which we specify the location of the model's associated Docker image, the S3 output destination for the trained model data, and other training details such as the maximum training time, training instance type, etc.) and calling the fit() method on the estimator.  Once this fit() method completes, the training model data is exported as a compressed file to the specified S3 location.  Our trained model can be located at ```s3://sagemaker-gettingstarted/tf-api-testing/inception-v2-output```.  The final steps in this notebook involve temporarily deploying the trained model, and then deleting the deployed model endpoint.  These final steps were simply used in the development process to assure that the model training process concluded as we expected.  Since we have already trained out object detection model, this Python notebook need not be run unless the user would like to re-train the model.
+- ```inference_pipeline.ipynb``` :  This Python notebook contains the methods for performing inference on supplied MX9 data.  As such, this will most likely be the Python notebook that will be accessed and run frequently.  Within this Python notebook a three-step process is performed - data preprocessing, data inference, and uploading of the inference result to our web back-end.  Full documentation for this process is included in markdown within the Python notebook itself.  To run this process, simply open the Python notebook, select Cell from the toolbar, and click 'Run All' in the Cell dropdown.
 
 <a name="database"></a>
 ## Setting up database locally  
@@ -232,6 +241,14 @@ SELECT * FROM images;
 <a name="contact"></a>
 ## Contact
 If there any questions, please email the CU Capstone Google Group. Each team member will be notified of the email. 
+
+<a name="acknowledgements"></a>
+## Acknowledgements
+We would like to give thanks to the following sources.  Our team greatly appreciated their publically available insight and utilities.
+
+[TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
+
+[How to deploy an Object Detection Model with TensorFlow serving](https://medium.freecodecamp.org/how-to-deploy-an-object-detection-model-with-tensorflow-serving-d6436e65d1d9) by Gaurav Kaila
 
 <a name="contact"></a>
 ## License 
