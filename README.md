@@ -30,7 +30,9 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Heroku scripts](#herokuscripts) 
   * [Viewing Heroku database contents](#dbheroku)
 - [Issues / Pain points](#issues) 
+  * [Data Retrieval and Processing](#dataissues)  
   * [AWS](#awsissues) 
+  * [Machine learning model](#mlissues)
   * [Web application](#webissues) 
   * [Heroku](#herokuissues) 
 - [Contact](#contact)
@@ -247,13 +249,21 @@ When testing the project and adding new images to the database, it might be wort
 ~~~sql
 SELECT * FROM images;
 ~~~ 
-
+  
 <a name="issues"></a>
 ## Issues / Pain points 
 In the following sections, the group details any major issues or pain points that we encountered during development. Hopefully this information will help any future teams avoid the problems that we had while we developed the system.  
 
-<a name="awsissues"></a>
+<a name="dataissues"></a> 
+### Data Retrieval and Processing
+TODO 
+
+<a name="awsissues"></a> 
 ### AWS 
+TODO 
+
+<a name="mlissues"></a> 
+### Machine learing model
 TODO 
 
 <a name="webissues"></a>
