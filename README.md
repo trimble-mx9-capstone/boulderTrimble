@@ -248,6 +248,27 @@ When testing the project and adding new images to the database, it might be wort
 SELECT * FROM images;
 ~~~ 
 
+- [Issues / Pain points](#issues) 
+  * [AWS](#awsissues) 
+  * [Web application](#webissues) 
+  * [Heroku](#herokuissues) 
+
+<a name="issues"></a>
+## Issues / Pain points 
+In the following sections, the group details any major issues or pain points that we encountered during development. Hopefully this information will help any future teams avoid the problems that we had while we developed the system.  
+
+<a name="awsissues"></a>
+### AWS 
+TODO 
+
+<a name="webissues"></a>
+### Web application 
+TODO 
+
+<a name="herokuissues"></a>
+### Heroku
+TODO
+
 <a name="contact"></a>
 ## Contact
 If there any questions, please email the CU Capstone Google Group. Each team member will be notified of the email. 
