@@ -272,7 +272,9 @@ TODO
 
 <a name="herokuissues"></a>
 ### Heroku
-TODO
+Heroku was generally easy to use. There were a couple small issues, though. First, it forced us to use PostgreSQL, which wasn't our first choice. PostgreSQL wasn't bad by any means, so we were ultimately okay with using it. Additionally, the git integration can make things complicated. If a team member pushes local changes to Heroku, nobody else can push new builds because the Heroku remote is different than the other members' local repositories.  
+
+Other than these minor issues, Heroku was a breeze to use. 
 
 <a name="contact"></a>
 ## Contact
