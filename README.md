@@ -260,11 +260,11 @@ TODO
 
 <a name="awsissues"></a> 
 ### AWS 
-TODO 
+- ```S3```:  In S3 you may notice an empty bucket named *sagemaker-inference-images*.  This bucket was created for testing purposes and is no longer needed, however, due to access permissions we were unable to delete the bucket.
 
 <a name="mlissues"></a> 
 ### Machine learing model
-TODO 
+One issue that may be experienced when using our object detection model for inference is failed batch transform jobs.  The success/failure of these jobs has been erratic and the reason for the failures has yet to be determined.  Occasionally, a batch tranform job fails with the reported reason being that there is a bad gateway to the input data on S3.  Recreating an identical job using the same input data, however, has subsequently succeeded in many cases.  For this reason, if a batch transform job fails within our inference pipeline, a backup inference procedure is initiated, which deploys a real-time model endpoint, uses this enpoint for inference, and then deletes the enpoint after all of the input data has been processed.  More details on this are included in markdown in the *inference_pipeline.ipynb* notebook located on our SageMaker notebook instance.
 
 <a name="webissues"></a>
 ### Web application 
