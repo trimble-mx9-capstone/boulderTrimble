@@ -27,14 +27,14 @@ This README is meant to be a step-by-step "cookbook" that describes how to get t
   * [Starting react dev server](#startreact)  
 - [Heroku](#heroku)
   * [Pushing builds to Heroku](#pushheroku)
-  * [Heroku scripts](#herokuscripts) 
+  * [Heroku scripts](#herokuscripts)
   * [Viewing Heroku database contents](#dbheroku)
-- [Issues / Pain points](#issues) 
+- [Issues / Pain points](#issues)
   * [Data Retrieval and Processing](#dataissues)  
-  * [AWS](#awsissues) 
+  * [AWS](#awsissues)
   * [Machine learning model](#mlissues)
-  * [Web application](#webissues) 
-  * [Heroku](#herokuissues) 
+  * [Web application](#webissues)
+  * [Heroku](#herokuissues)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
@@ -99,7 +99,7 @@ Our S3 buckets consisted of five major directories.
 - ```output-detections```: The images from ```images``` with bounding boxes drawn on them. These bounding boxes are defined by an image's output file in ```output```. These labeled images are then referenced by the website/webserver (which stores the URLs to each image in a database).   
 
 <a name="sagemaker"></a>
-## SageMaker 
+## SageMaker
 Our object detection model training, deployment, and inference processes were all accomplished within Amazon's Sagemaker platform by writing custom scripts to work alongside [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection).  The following sections contain information regarding the individual components that made these processes possible.
 
 <a name="notebookinstance"></a>
@@ -216,31 +216,31 @@ If you want to run it without the JSExpress API server, then the steps are sligh
 
 <a name="heroku"></a>
 ## Heroku
-Our deployment environment of choice is Heroku. Heroku is the home of our API server, the production HTML/Javascript, and our database. **Before getting started with Heroku,** there are a few important steps to follow: 
+Our deployment environment of choice is Heroku. Heroku is the home of our API server, the production HTML/Javascript, and our database. **Before getting started with Heroku,** there are a few important steps to follow:
 
-1. Contact Landon to be added as a contributor to the Heroku project. Include the email that is associated with your git account. 
+1. Contact Landon to be added as a contributor to the Heroku project. Include the email that is associated with your git account.
 2. Install the Heroku CLI [here](https://devcenter.heroku.com/categories/command-line).  
 
 <a name="pushheroku"></a>
 ### Pushing builds to Heroku
-Once the repo is cloned to your local machine and you have made changes that are ready for production, you can push the changes to Heroku. Follow these steps: 
+Once the repo is cloned to your local machine and you have made changes that are ready for production, you can push the changes to Heroku. Follow these steps:
 
-1. Add the Heroku git remote to your local repository: ```$ heroku git:remote -a fhast-detection``` 
-2. ```cd``` to the top level of the repository (boulderTrimble) 
-3. Commit & push all your changes to the master branch of GitHub; ensures that origin and Heroku are on the same build 
+1. Add the Heroku git remote to your local repository: ```$ heroku git:remote -a fhast-detection```
+2. ```cd``` to the top level of the repository (boulderTrimble)
+3. Commit & push all your changes to the master branch of GitHub; ensures that origin and Heroku are on the same build
 4. From the top level directory, push the server subdirectory: ```$ git subtree push --prefix webapp/server heroku master```
 
    *Note*: Heroku requires that the top level of the codebase contains the package.json for the server. The top level directory for boulderTrimble is not the server directory, so we push the server subdirectory instead of doing a traditional push.  
 
-5. The push initiates a build on Heroku. Done! 
+5. The push initiates a build on Heroku. Done!
 
 <a name="herokuscripts"></a>
 ### Heroku scripts
 To build the client in production, Heroku executes a short set of commands after a push. This makes it easier for the developer; otherwise, the developer would have to build the client code on his local machine before pushing. These commands are found in ```boulderTrimble/webapp/server/package.json``` under ```scripts.heroku-postbuild```.  
 
 <a name="dbheroku"></a>
-### Viewing Heroku database contents 
-When testing the project and adding new images to the database, it might be worthwhile to SSH into the database and view/modify its contents. Follow these steps to do so: 
+### Viewing Heroku database contents
+When testing the project and adding new images to the database, it might be worthwhile to SSH into the database and view/modify its contents. Follow these steps to do so:
 
 1. ```cd``` into the repo on your local machine
 2. Use the command ```$ heroku pg:psql```
@@ -248,37 +248,38 @@ When testing the project and adding new images to the database, it might be wort
 
 ~~~sql
 SELECT * FROM images;
-~~~ 
-  
+~~~
+
 <a name="issues"></a>
-## Issues / Pain points 
+## Issues / Pain points
 In the following sections, the group details any major issues or pain points that we encountered during development. Hopefully this information will help any future teams avoid the problems that we had while we developed the system.  
 
-<a name="dataissues"></a> 
+<a name="dataissues"></a>
 ### Data Retrieval and Processing
-TODO 
 
-<a name="awsissues"></a> 
-### AWS 
+- Data Ocean: Retrieving data from the data ocean for us wasn't a time sensitive task but one that took decently long in order to get all the data we would need. Architecture wasn't too difficult to learn but had a learning curve nonetheless to navigate around the data ocean. In the end, had to create an interfacing application to navigate down its hierarchy. 
+
+<a name="awsissues"></a>
+### AWS
 - ```S3```:  In S3 you may notice an empty bucket named *sagemaker-inference-images*.  This bucket was created for testing purposes and is no longer needed, however, due to access permissions we were unable to delete the bucket.
 
-<a name="mlissues"></a> 
+<a name="mlissues"></a>
 ### Machine learing model
 One issue that may be experienced when using our object detection model for inference is failed batch transform jobs.  The success/failure of these jobs has been erratic and the reason for the failures has yet to be determined.  Occasionally, a batch tranform job fails with the reported reason being that there is a bad gateway to the input data on S3.  Recreating an identical job using the same input data, however, has subsequently succeeded in many cases.  For this reason, if a batch transform job fails within our inference pipeline, a backup inference procedure is initiated, which deploys a real-time model endpoint, uses this enpoint for inference, and then deletes the enpoint after all of the input data has been processed.  More details on this are included in markdown in the *inference_pipeline.ipynb* notebook located on our SageMaker notebook instance.
 
 <a name="webissues"></a>
-### Web application 
-TODO 
+### Web application
+TODO
 
 <a name="herokuissues"></a>
 ### Heroku
 Heroku was generally easy to use. There were a couple small issues, though. First, it forced us to use PostgreSQL, which wasn't our first choice. PostgreSQL wasn't bad by any means, so we were ultimately okay with using it. Additionally, the git integration can make things complicated. If a team member pushes local changes to Heroku, nobody else can push new builds because the Heroku remote is different than the other members' local repositories.  
 
-Other than these minor issues, Heroku was a breeze to use. 
+Other than these minor issues, Heroku was a breeze to use.
 
 <a name="contact"></a>
 ## Contact
-If there any questions, please email the CU Capstone Google Group. Each team member will be notified of the email. 
+If there any questions, please email the CU Capstone Google Group. Each team member will be notified of the email.
 
 <a name="acknowledgements"></a>
 ## Acknowledgements
@@ -287,4 +288,3 @@ We would like to give thanks to the following sources.  Our team greatly appreci
 [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
 [How to deploy an Object Detection Model with TensorFlow serving](https://medium.freecodecamp.org/how-to-deploy-an-object-detection-model-with-tensorflow-serving-d6436e65d1d9) by Gaurav Kaila
-
