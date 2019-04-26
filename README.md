@@ -269,7 +269,9 @@ One issue that may be experienced when using our object detection model for infe
 
 <a name="webissues"></a>
 ### Web application
-TODO
+Redux had a very high learning curve and its integration with asyncronous actions was confusing. React, on the other hand, was inconsistent; some React components that we found were super easy to use and didn't produce any issues, while others caused problems frequently. This is partly our fault, though; we didn't have time to make every component from scratch, so we were at the mercy of open source components at times.  
+
+Despite the issues, both libraries were very useful once we became more comfortable with them. 
 
 <a name="herokuissues"></a>
 ### Heroku
