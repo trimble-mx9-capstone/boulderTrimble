@@ -47,6 +47,11 @@ This section discusses how we pulled images from the Data Ocean and uploaded the
 ### Obtaining images from Data Ocean
 <b>The script to run the command line interface to interact with the data ocean</b>
 - processImages/download/collect_image_data.py
+  - This script uses Python 3, and requires the libraries numpy, pandas, and requests. To get these, run these commands:
+    - ```sudo apt-get install pip``` (Note: You may need to replace this and all pip commands with pip3)
+    - ```pip install numpy```
+    - ```pip install pandas```
+    - ```pip install requests```
 
 This script needs some information in order to interact with the data ocean.
 
